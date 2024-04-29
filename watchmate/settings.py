@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-^2d8ldwgg+2a5_b#&9#bokr_3-0aph%!j-&wwvwy4qg2b6t%i4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['https://watchmate.onrender.com','https://*.127.0.0.1']
 
 
 # Application definition
