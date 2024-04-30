@@ -4,6 +4,7 @@ from . import serializers
 from rest_framework import filters, pagination
 from rest_framework.permissions import IsAuthenticated
 from .permissions import AdminOrReadOnly,ReviewerOrReadOnly
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.exceptions import ValidationError
@@ -37,6 +38,7 @@ class ReleaseViewset(viewsets.ModelViewSet):
 class ReviewCreate(generics.CreateAPIView):
     serializer_class = serializers.ReviewSerializer
     permission_classes = [IsAuthenticated]
+    authentication_classes = [TokenAuthentication]
     
     def get_queryset(self):
         return models.Review.objects.all()
