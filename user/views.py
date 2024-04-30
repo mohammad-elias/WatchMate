@@ -18,6 +18,7 @@ class UserRegistrationApiView(APIView):
         if serializer.is_valid():
             user = serializer.save()
             data['response'] = 'Registration Successful!'
+            data['user_id'] = user.id
             data['username'] = user.username
             data['first_name'] = user.first_name
             data['last_name'] = user.last_name
